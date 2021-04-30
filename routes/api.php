@@ -14,8 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/**
+ * Auth
+ */
+
+Route::post('/register', 'AuthController@register');
+Route::post('/login', 'AuthController@login');
+Route::middleware('auth:sanctum')->post('/logout', 'AuthController@logout');
+
+/**
+ * Board Games
+ */
+
 Route::get('/boardgames', 'BoardGameController@index');
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
