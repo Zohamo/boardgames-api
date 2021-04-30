@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Boardgames extends Model
+class BoardGame extends Model
 {
     use HasFactory;
 
@@ -15,4 +15,12 @@ class Boardgames extends Model
      * @var string
      */
     protected $table = 'bg_boardgames';
+
+    /**
+     * The type of game.
+     */
+    public function type()
+    {
+        return $this->hasOne('App\Models\Type', 'id_type', 'fk_id_type');
+    }
 }
