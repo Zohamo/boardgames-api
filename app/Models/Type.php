@@ -21,6 +21,6 @@ class Type extends Model
      */
     public function boardgames()
     {
-        return $this->hasMany('App\Boardgames', 'fk_id_type');
+        return $this->hasMany('App\BoardGame', 'fk_id_type');
     }
 }

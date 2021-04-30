@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\BoardGame;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/boardgames', function () {
-    return BoardGame::with('type')->get();
-});
+Route::get('/boardgames', 'BoardGameController@index');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
