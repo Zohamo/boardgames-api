@@ -1,8 +1,19 @@
 {
-    "name": "laravel/laravel",
+    "name": "zohamo/api-laravel",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "description": "A simple API with Laravel.",
+    "keywords": [
+        "framework",
+        "laravel",
+        "API"
+    ],
+    "authors": [
+        {
+            "name": "Mathias Mille",
+            "email": "mathias.mille@gmail.com",
+            "homepage": "https://mathiasmille.fr"
+        }
+    ],
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
