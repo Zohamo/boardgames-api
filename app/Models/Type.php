@@ -9,12 +9,21 @@ class Type extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     /**
      * The table associated with the model.
      *
      * @var string
      */
     protected $table = 'bg_types';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['name_type'];
 
     /**
      * The type of game.
