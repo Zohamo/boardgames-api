@@ -14,20 +14,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return ['message' => "API works !"];
+});
+
 /**
  * Auth
  */
 
-Route::post('/register', 'AuthController@register');
-Route::post('/login', 'AuthController@login');
-Route::middleware('auth:sanctum')->post('/logout', 'AuthController@logout');
+// Route::post('/register', 'AuthController@register');
+// Route::post('/login', 'AuthController@login');
+// Route::middleware('auth:sanctum')->post('/logout', 'AuthController@logout');
 
 /**
  * Board Games
  */
 
 Route::get('/boardgames', 'BoardGameController@index');
+Route::get('/boardgames/{slug}', 'BoardGameController@show');
+// Route::middleware('auth:sanctum')->post('/types', 'TypeController@store');
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+/* Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
-});
+}); */

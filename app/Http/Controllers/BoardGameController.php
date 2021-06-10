@@ -16,4 +16,15 @@ class BoardGameController extends Controller
     {
         return BoardGame::with('type')->orderBy('bgg_weight')->get();
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  string  $slug
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function show(string $slug)
+    {
+        return response(BoardGame::with('type')->where('slug', '=', $slug)->first());
+    }
 }
