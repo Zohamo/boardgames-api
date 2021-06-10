@@ -14,6 +14,6 @@ class BoardGameController extends Controller
      */
     public function index()
     {
-        return BoardGame::with('type')->get();
+        return BoardGame::with('type')->orderBy('bgg_weight')->get();
     }
 }
