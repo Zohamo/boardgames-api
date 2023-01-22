@@ -24,13 +24,23 @@ class BoardGame extends Model
     protected $appends = ['players', 'duration'];
 
     /**
+     * The theme of game.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function theme()
+    {
+        return $this->hasOne('App\Models\Theme', 'the_id', 'fk_theme_id');
+    }
+
+    /**
      * The type of game.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function type()
     {
-        return $this->hasOne('App\Models\Type', 'id_type', 'fk_id_type');
+        return $this->hasOne('App\Models\Type', 'typ_id', 'fk_type_id');
     }
 
     /**

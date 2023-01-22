@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\BoardGame;
-use Illuminate\Http\Request;
 
 class BoardGameController extends Controller
 {
@@ -14,7 +13,15 @@ class BoardGameController extends Controller
      */
     public function index()
     {
-        return BoardGame::with('type')->orderBy('bgg_weight')->get();
+        return BoardGame::select('bg_boardgames.*', 'the_name AS theme', 'typ_name AS type')
+            ->whereNull('bg_boardgames.deleted_at')
+            ->leftJoin('bg_themes', 'fk_theme_id', '=', 'the_id')
+            ->leftJoin('bg_types', 'fk_type_id', '=', 'typ_id')
+            ->orderBy('bgg_weight')
+            ->orderBy('min_age')
+            ->orderBy('min_duration')
+            ->orderBy('max_duration')
+            ->get();
     }
 
     /**
@@ -25,6 +32,8 @@ class BoardGameController extends Controller
      */
     public function show(string $slug)
     {
-        return response(BoardGame::with('type')->where('slug', '=', $slug)->first());
+        return response(BoardGame::select('bg_boardgames.*', 'the_name AS theme', 'typ_name AS type')
+            ->leftJoin('bg_themes', 'fk_theme_id', '=', 'the_id')
+            ->leftJoin('bg_types', 'fk_type_id', '=', 'typ_id')->where('slug', '=', $slug)->first());
     }
 }
