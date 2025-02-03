@@ -44,6 +44,23 @@ class BoardGame extends Model
     }
 
     /**
+     * The mechanisms of game.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
+     */
+    public function mechanisms()
+    {
+        return $this->hasManyThrough(
+            'App\Models\Mechanism',
+            'App\Models\BoardGameHasMechanisms',
+            'fk_bg_id',
+            'fk_mec_id',
+            'bg_id',
+            'mec_id'
+        )->select(['id', 'name', 'gender']);
+    }
+
+    /**
      * Get the number of players.
      *
      * @return array
