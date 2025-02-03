@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Type extends Model
+class Mechanism extends Model
 {
     use HasFactory;
 
@@ -16,20 +16,12 @@ class Type extends Model
      *
      * @var string
      */
-    protected $table = 'bg_types';
+    protected $table = 'bg_mechanisms';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['typ_name'];
-
-    /**
-     * The games related to this type.
-     */
-    public function boardgames()
-    {
-        return $this->hasMany('App\BoardGame', 'fk_type_id');
-    }
+    protected $fillable = ['mec_name'];
 }
