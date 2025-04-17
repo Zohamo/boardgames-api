@@ -20,8 +20,8 @@ class BoardGameController extends Controller
             ->leftJoin('bg_types', 'fk_type_id', '=', 'typ_id')
             ->orderBy('bgg_weight')
             ->orderBy('min_age')
-            ->orderBy('min_duration')
-            ->orderBy('max_duration')
+            ->orderBy('play_time_min')
+            ->orderBy('play_time_max')
             ->get();
     }
 

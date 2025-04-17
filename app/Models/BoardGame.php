@@ -81,8 +81,8 @@ class BoardGame extends Model
     public function getDurationAttribute()
     {
         return [
-            'min' => $this->attributes['min_duration'],
-            'max' => $this->attributes['max_duration'],
+            'min' => $this->attributes['play_time_min'],
+            'max' => $this->attributes['play_time_max'],
         ];
     }
 }
