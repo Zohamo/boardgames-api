@@ -30,6 +30,7 @@ Route::get('/', function () {
  * Board Games
  */
 
+Route::get('/boardgames/{slug}/plays', 'BoardGamePlayController@index');
 Route::get('/boardgames', 'BoardGameController@index');
 Route::get('/boardgames/{slug}', 'BoardGameController@show');
 // Route::middleware('auth:sanctum')->post('/types', 'TypeController@store');

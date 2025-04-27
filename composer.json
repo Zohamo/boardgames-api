@@ -1,6 +1,6 @@
 {
     "name": "zohamo/boardgames-api",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "type": "api",
     "description": "A simple API with Laravel.",
     "keywords": [
